@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "noErrorTruncation": true,
+        "esModuleInterop": true,
+        "outDir": "dist",
+        "module": "commonjs",
+        "target": "es5",
+        "sourceMap": true,
+        "jsx": "react",
+        "moduleResolution": "node",
+        "forceConsistentCasingInFileNames": true,
+        "allowSyntheticDefaultImports": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "alwaysStrict": true,
+        "pretty": true,
+        "baseUrl": ".",
+        "rootDir": "src",
+        "lib": [
+            "dom",
+            "es5",
+            "es2015.core",
+            "es2015.promise",
+            "es2016.array.include",
+            "es2017.string",
+            "es2018.promise"
+        ],
+        "paths": {
+            "*": ["node_modules", "src/*"]
+        }
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "src/**/*.test.tsx"]
+}
