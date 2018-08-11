@@ -36,7 +36,7 @@ module.exports = {
                         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
                         loader: require.resolve('url-loader'),
                         options: {
-                        limit: 10000,
+                            limit: 10000,
                             name: 'build/media/[name].[hash:8].[ext]',
                         },
                     },
@@ -61,7 +61,7 @@ module.exports = {
                         exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/],
                         loader: require.resolve('file-loader'),
                         options: {
-                            name: 'dist/media/[name].[hash:8].[ext]',
+                            name: 'build/media/[name].[hash:8].[ext]',
                         },
                     },
                 ],
@@ -75,6 +75,7 @@ module.exports = {
 
         new HtmlWebpackPlugin({
             template: paths.clientHtml,
+            title: 'Weather Widget'
         }),
 
         new ForkTsCheckerWebpackPlugin({

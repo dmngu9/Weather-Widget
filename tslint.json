@@ -1,11 +1,5 @@
 {
-    "extends": [
-        "tslint:recommended",
-        "tslint-react",
-        "tslint-config-airbnb",
-        "tslint-eslint-rules",
-        "rxjs-tslint-rules"
-    ],
+    "extends": ["tslint:recommended", "tslint-react", "tslint-config-airbnb", "tslint-eslint-rules"],
     "rulesDirectory": ["node_modules/tslint-no-focused-test"],
     "rules": {
         "space-in-parens": false,
@@ -44,7 +38,6 @@
         "interface-name": [true, "never-prefix"],
         "no-any": true,
         "strict-boolean-expressions": false,
-        "import-blacklist": [false, "rxjs"],
         "jsx-boolean-value": [true, "never"],
         "object-literal-sort-keys": false,
         "prefer-template": true,

@@ -6,9 +6,6 @@ module.exports = {
     transform: {
         '^.+\\.(ts|tsx)$': 'ts-jest'
     },
-    reporters: [
-        'default'
-    ],
     setupTestFrameworkScriptFile: paths.enzymeSetup,
     snapshotSerializers: ['enzyme-to-json/serializer'],
     testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(ts|tsx)$',
