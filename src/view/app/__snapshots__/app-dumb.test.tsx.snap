@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should render correctly 1`] = `
+<styled.div>
+  <Styled(EditorDumb)
+    onChange={[Function]}
+    unit="metric"
+    wind="on"
+  />
+  <Styled(Widget)
+    showWind={true}
+    title="Title of widget"
+    unit="metric"
+  />
+</styled.div>
+`;

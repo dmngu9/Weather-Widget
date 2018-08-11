@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WidgetDumb /> should render correctly 1`] = `
+<styled.div>
+  <styled.h3>
+    Forecast of the day
+  </styled.h3>
+  <styled.div>
+    <styled.div>
+      <styled.img
+        alt="weather icon"
+        src="url"
+      />
+    </styled.div>
+    <styled.div>
+      <styled.p>
+        Sydney
+      </styled.p>
+      <styled.p>
+        34
+        °
+      </styled.p>
+      <styled.p>
+        <strong>
+          Wind
+        </strong>
+         
+        NE
+         
+        100km/h
+      </styled.p>
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<WidgetDumb /> should render correctly when error 1`] = `
+<styled.p>
+  this is error
+</styled.p>
+`;
+
+exports[`<WidgetDumb /> should render correctly when loading 1`] = `
+<Spinner
+  delay={100}
+  invertColor={false}
+  isCompleting={false}
+  onComplete={[Function]}
+  size="large"
+/>
+`;
+
+exports[`<WidgetDumb /> should render correctly with no wind data displayed 1`] = `
+<styled.div>
+  <styled.h3>
+    Forecast of the day
+  </styled.h3>
+  <styled.div>
+    <styled.div>
+      <styled.img
+        alt="weather icon"
+        src="url"
+      />
+    </styled.div>
+    <styled.div>
+      <styled.p>
+        Sydney
+      </styled.p>
+      <styled.p>
+        34
+        °
+      </styled.p>
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;

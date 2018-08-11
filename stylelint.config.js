@@ -7,23 +7,6 @@ module.exports = {
         indentation: 4,
 
         'scale-unlimited/declaration-strict-value': [
-            [
-                '/color/',
-                'background',
-                'z-index',
-                'font-size',
-                'fill',
-                'stroke',
-                '/height/',
-                '/width/',
-                '/margin/',
-                '/padding/',
-                'top',
-                'left',
-                'right',
-                'bottom',
-                'box-shadow',
-            ],
             {
                 ignoreKeywords: {
                     '': ['inherit', 'transparent', 'currentColor', 'initial'],

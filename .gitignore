@@ -43,3 +43,5 @@ coverage
 test-results
 
 build
+
+.vscode
