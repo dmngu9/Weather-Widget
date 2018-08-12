@@ -2,6 +2,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const paths = require('./paths');
 
@@ -85,6 +86,8 @@ module.exports = {
             tsconfig: paths.clientTsConfig,
             tslint: paths.clientTsLint,
         }),
+
+        new Dotenv()
     ],
 
     node: {

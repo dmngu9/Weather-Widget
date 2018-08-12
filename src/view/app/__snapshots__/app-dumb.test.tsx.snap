@@ -9,7 +9,7 @@ exports[`<App /> should render correctly 1`] = `
   />
   <Styled(Widget)
     showWind={true}
-    title="Title of widget"
+    title=""
     unit="metric"
   />
 </styled.div>

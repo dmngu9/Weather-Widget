@@ -31,7 +31,7 @@ interface State {
     error?: string;
 }
 
-const API_KEYS = '5a2e25758c60b6d342b4011903ce1d79';
+const API_KEYS = process.env.API_KEYS;
 const TIMER = 1000 * 60 * 60;
 
 export default class Widget extends React.Component<Props, State> {
@@ -142,10 +142,11 @@ export default class Widget extends React.Component<Props, State> {
                 : temperature.fahrenheit;
 
         const windDirection = !wind ? undefined : this.getWindDirection(wind.degree);
+        const widgetTitle = title.trim().length === 0 ? 'Title of widget' : title;
 
         return (
             <WidgetDumb
-                title={title}
+                title={widgetTitle}
                 showWind={showWind}
                 city={city}
                 temperature={temperatureWithUnit}

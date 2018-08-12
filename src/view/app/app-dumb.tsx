@@ -10,7 +10,7 @@ interface State {
 
 export default class AppDumb extends React.Component<{}, State> {
     state: State = {
-        title: 'Title of widget',
+        title: '',
         unit: 'metric',
         wind: 'on'
     };
