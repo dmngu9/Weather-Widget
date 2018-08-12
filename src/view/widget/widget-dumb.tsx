@@ -1,13 +1,15 @@
 import * as React from 'react';
 
-import { Title, Icon, IconContainer } from './styles';
+import { Container, Content, Title, Icon, Info, IconContainer, Temperature, City, Wind } from './styles';
+import { withLoading } from 'view/with-loading';
+import { withError } from 'view/with-error';
 
 interface Props {
     title: string;
     city?: string;
     iconUrl?: string;
-    windSpeed?: number;
-    windDeg?: number;
+    windSpeed?: string;
+    windDirection?: string;
     temperature?: number;
     showWind: boolean;
 }
@@ -18,23 +20,33 @@ const WidgetDumb: React.StatelessComponent<Props> = ({
     city,
     temperature,
     windSpeed,
-    windDeg,
+    windDirection,
     showWind
 }) => (
-    <div>
+    <Container>
         <Title>{title}</Title>
-        <IconContainer>
-            <Icon src={iconUrl} alt="Weather forcast icon" />
-        </IconContainer>
-        <p>{city}</p>
-        <h3>{temperature} &#9702</h3>
-        {showWind && (
-            <p>
-                <strong>Wind</strong>
-                {windSpeed}, {windDeg}
-            </p>
-        )}
-    </div>
+        <Content>
+            <IconContainer>
+                <Icon src={iconUrl} alt="weather icon" />
+            </IconContainer>
+            <Info>
+                <City>{city}</City>
+                <Temperature>
+                    {temperature}
+                    &#xb0;
+                </Temperature>
+                {showWind && (
+                    <Wind>
+                        <strong>Wind</strong>
+                        &nbsp;
+                        {windDirection}
+                        &nbsp;
+                        {windSpeed}
+                    </Wind>
+                )}
+            </Info>
+        </Content>
+    </Container>
 );
 
-export default WidgetDumb;
+export default withError(withLoading(WidgetDumb));

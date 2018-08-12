@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WithError should render correctly when no error 1`] = `
+<Example
+  title="title"
+/>
+`;
+
+exports[`WithError should render correctly with error 1`] = `
+<styled.p>
+  this is error
+</styled.p>
+`;

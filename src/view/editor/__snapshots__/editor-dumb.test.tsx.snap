@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Editor /> should render correctly 1`] = `
+<styled.form>
+  <styled.fieldset>
+    <styled.legend>
+      Title
+    </styled.legend>
+    <styled.input
+      maxLength={50}
+      name="title"
+      onChange={[MockFunction]}
+      placeholder="Title of widget"
+      type="text"
+    />
+  </styled.fieldset>
+  <styled.fieldset>
+    <styled.legend>
+      Unit
+    </styled.legend>
+    <styled.div>
+      <styled.label>
+        Metric (°C, m/s)
+        <styled.input
+          defaultChecked={true}
+          name="unit"
+          onClick={[MockFunction]}
+          type="radio"
+          value="metric"
+        />
+        <styled.span />
+      </styled.label>
+      <styled.label>
+        Imperial (°F, mph)
+        <styled.input
+          defaultChecked={false}
+          name="unit"
+          onClick={[MockFunction]}
+          type="radio"
+          value="imperial"
+        />
+        <styled.span />
+      </styled.label>
+    </styled.div>
+  </styled.fieldset>
+  <styled.fieldset>
+    <styled.legend>
+      Wind
+    </styled.legend>
+    <styled.div>
+      <styled.label>
+        On
+        <styled.input
+          defaultChecked={true}
+          name="wind"
+          onClick={[MockFunction]}
+          type="radio"
+          value="on"
+        />
+        <styled.span />
+      </styled.label>
+      <styled.label>
+        Off
+        <styled.input
+          defaultChecked={false}
+          name="wind"
+          onClick={[MockFunction]}
+          type="radio"
+          value="off"
+        />
+        <styled.span />
+      </styled.label>
+    </styled.div>
+  </styled.fieldset>
+</styled.form>
+`;

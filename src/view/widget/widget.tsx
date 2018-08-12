@@ -6,16 +6,25 @@ import WidgetDumb from './widget-dumb';
 interface Props {
     title: string;
     showWind: boolean;
-    tempUnit: 'metric' | 'imperial';
+    unit: 'metric' | 'imperial';
+}
+
+interface Temperature {
+    celsius: number;
+    fahrenheit: number;
+}
+
+interface Wind {
+    metricSpeed: number;
+    imperialSpeed: number;
+    degree: number;
 }
 
 interface State {
     city?: string;
-    tempCelsius?: number;
-    tempFahrenheit?: number;
+    temperature?: Temperature;
     iconUrl?: string;
-    windSpeed?: number;
-    windDeg?: number;
+    wind?: Wind;
 
     // screen loading and error state
     loading?: boolean;
@@ -23,17 +32,27 @@ interface State {
 }
 
 const API_KEYS = '5a2e25758c60b6d342b4011903ce1d79';
+const TIMER = 1000 * 60 * 60;
 
 export default class Widget extends React.Component<Props, State> {
     state: State = {
         loading: false
     };
+    timer: NodeJS.Timer;
 
     componentDidMount() {
         this.fetchWeatherDataWithRetrievedLocation();
+        this.timer = setInterval(() => {
+            this.fetchWeatherDataWithRetrievedLocation();
+        }, TIMER);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
     }
 
     fetchWeatherDataWithRetrievedLocation() {
+        this.setState({ loading: true });
         if (!navigator.geolocation) {
             this.setState({ error: 'Browser does not support Geolocation' });
             return;
@@ -51,7 +70,6 @@ export default class Widget extends React.Component<Props, State> {
     }
 
     fetchWeatherData(latitude: number, longitude: number) {
-        this.setState({ loading: true });
         axios
             .all([
                 axios.get(
@@ -65,33 +83,77 @@ export default class Widget extends React.Component<Props, State> {
                 axios.spread((metricRes, imperialRes) => {
                     this.setState({
                         city: metricRes.data.name,
-                        tempCelsius: metricRes.data.main.temp,
-                        tempFahrenheit: imperialRes.data.main.temp,
+                        temperature: {
+                            celsius: metricRes.data.main.temp,
+                            fahrenheit: imperialRes.data.main.temp
+                        },
                         iconUrl: `https://openweathermap.org/img/w/${metricRes.data.weather[0].icon}.png`,
-                        windSpeed: metricRes.data.wind.speed,
-                        windDeg: metricRes.data.wind.deg,
+                        wind: {
+                            metricSpeed: metricRes.data.wind.speed,
+                            imperialSpeed: imperialRes.data.wind.speed,
+                            degree: metricRes.data.wind.deg
+                        },
                         loading: false
                     });
                 })
             )
             .catch(err => {
-                this.setState({ error: err, loading: false });
+                this.setState({ error: err.message, loading: false });
             });
     }
 
+    getWindDirection(windDeg: number) {
+        let direction: string;
+        if (windDeg > 270) {
+            direction = 'NW';
+        } else if (windDeg === 270) {
+            direction = 'W';
+        } else if (windDeg > 180) {
+            direction = 'SW';
+        } else if (windDeg === 180) {
+            direction = 'S';
+        } else if (windDeg > 90) {
+            direction = 'SE';
+        } else if (windDeg === 90) {
+            direction = 'E';
+        } else if (windDeg > 0) {
+            direction = 'NE';
+        } else {
+            direction = 'N';
+        }
+
+        return direction;
+    }
+
     render() {
-        const { title, showWind, tempUnit } = this.props;
-        const { city, tempCelsius, tempFahrenheit, windSpeed, windDeg, iconUrl } = this.state;
+        const { title, showWind, unit } = this.props;
+        const { city, temperature, wind, iconUrl, loading, error } = this.state;
+
+        const windSpeedWithUnit = !wind
+            ? undefined
+            : unit === 'metric'
+                ? `${wind.metricSpeed}m/s`
+                : `${wind.imperialSpeed}mph`;
+
+        const temperatureWithUnit = !temperature
+            ? undefined
+            : unit === 'metric'
+                ? temperature.celsius
+                : temperature.fahrenheit;
+
+        const windDirection = !wind ? undefined : this.getWindDirection(wind.degree);
 
         return (
             <WidgetDumb
                 title={title}
                 showWind={showWind}
                 city={city}
-                temperature={tempUnit === 'metric' ? tempCelsius : tempFahrenheit}
-                windSpeed={windSpeed}
-                windDeg={windDeg}
+                temperature={temperatureWithUnit}
+                windSpeed={windSpeedWithUnit}
+                windDirection={windDirection}
                 iconUrl={iconUrl}
+                loading={loading}
+                error={error}
             />
         );
     }
