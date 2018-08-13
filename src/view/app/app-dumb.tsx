@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import { Container, StyledEditor, StyledWidget } from './styles';
+import { Container, StyledEditor } from './styles';
+import { Widget } from 'view/widget';
 
 interface State {
     title: string;
@@ -31,7 +32,7 @@ export default class AppDumb extends React.Component<{}, State> {
         return (
             <Container>
                 <StyledEditor onChange={this.onChange} unit={unit} wind={wind} />
-                <StyledWidget title={title} unit={unit} showWind={wind === 'on'} />
+                <Widget title={title} unit={unit} showWind={wind === 'on'} />
             </Container>
         );
     }
