@@ -64,3 +64,16 @@ exports[`<Widget /> should render correctly should render correctly when receive
   windSpeed="7.31m/s"
 />
 `;
+
+exports[`<Widget /> should render correctly should render correctly with default title when title is empty or just blank spaces 1`] = `
+<WidgetDumb
+  city="Shuzenji"
+  iconUrl="https://openweathermap.org/img/w/04n.png"
+  loading={false}
+  showWind={false}
+  temperature={12}
+  title="Title of widget"
+  windDirection="SW"
+  windSpeed="7.31m/s"
+/>
+`;

@@ -128,6 +128,15 @@ describe('<Widget />', () => {
 
             expect(wrapper).toMatchSnapshot();
         });
+
+        it('should render correctly with default title when title is empty or just blank spaces', async () => {
+            const wrapper = shallow(<Widget title="" showWind={false} unit="metric" />);
+
+            await res;
+            wrapper.update();
+
+            expect(wrapper).toMatchSnapshot();
+        });
     });
 
     describe('refetch weather data', () => {
