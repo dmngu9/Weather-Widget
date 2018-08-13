@@ -1,4 +1,6 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
+
 const paths = require('../config/paths');
 
 module.exports = {
@@ -31,5 +33,8 @@ module.exports = {
                 },
             }
         ]
-    }
+    },
+    plugins: [
+        new Dotenv()
+    ]
 };
