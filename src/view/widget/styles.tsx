@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import * as fonts from 'utils/fonts';
 
 export const Container = styled.div`
-    width: 320px;
+    width: 344px;
     padding: 24px;
     background-color: white;
     box-sizing: border-box;
@@ -46,7 +46,7 @@ export const Icon = styled.img`
 `;
 
 export const Info = styled.div`
-    word-break: break-word;
+    word-break: break-all;
     hyphens: auto;
 `;
 

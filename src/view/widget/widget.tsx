@@ -32,7 +32,7 @@ interface State {
 }
 
 const API_KEYS = process.env.API_KEYS;
-const TIMER = 1000 * 60 * 60;
+export const TIMER = 1000 * 60 * 60;
 
 export default class Widget extends React.Component<Props, State> {
     state: State = {
@@ -52,12 +52,12 @@ export default class Widget extends React.Component<Props, State> {
     }
 
     fetchWeatherDataWithRetrievedLocation() {
-        this.setState({ loading: true });
         if (!navigator.geolocation) {
             this.setState({ error: 'Browser does not support Geolocation' });
             return;
         }
 
+        this.setState({ loading: true });
         navigator.geolocation.getCurrentPosition(
             (position: Position) => {
                 const { latitude, longitude } = position.coords;

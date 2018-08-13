@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Widget /> should render correctly should render correctly when geolocation throw error 1`] = `
+<WidgetDumb
+  error="position error"
+  loading={true}
+  showWind={true}
+  title="title"
+/>
+`;
+
+exports[`<Widget /> should render correctly should render correctly when loading 1`] = `
+<WidgetDumb
+  loading={true}
+  showWind={true}
+  title="title"
+/>
+`;
+
+exports[`<Widget /> should render correctly should render correctly when no geolocation support 1`] = `
+<WidgetDumb
+  error="Browser does not support Geolocation"
+  loading={false}
+  showWind={true}
+  title="title"
+/>
+`;
+
+exports[`<Widget /> should render correctly should render correctly when received fetched data on mount and unit is imperial 1`] = `
+<WidgetDumb
+  city="Shuzenji"
+  iconUrl="https://openweathermap.org/img/w/04n.png"
+  loading={false}
+  showWind={true}
+  temperature={289.5}
+  title="title"
+  windDirection="SW"
+  windSpeed="15mph"
+/>
+`;
+
+exports[`<Widget /> should render correctly should render correctly when received fetched data on mount and unit is metric 1`] = `
+<WidgetDumb
+  city="Shuzenji"
+  iconUrl="https://openweathermap.org/img/w/04n.png"
+  loading={false}
+  showWind={true}
+  temperature={12}
+  title="title"
+  windDirection="SW"
+  windSpeed="7.31m/s"
+/>
+`;
+
+exports[`<Widget /> should render correctly should render correctly when received fetched data on mount but not show wind 1`] = `
+<WidgetDumb
+  city="Shuzenji"
+  iconUrl="https://openweathermap.org/img/w/04n.png"
+  loading={false}
+  showWind={false}
+  temperature={12}
+  title="title"
+  windDirection="SW"
+  windSpeed="7.31m/s"
+/>
+`;
