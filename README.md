@@ -12,7 +12,7 @@ Before setting up, please make sure you have Node and yarn installed. I use Node
 
 Make a .env file at the root of the project. Declare API_KEYS in it with your private API key from open-weather-api site.
 
-`API_KEYS=df45ggh`
+`API_KEYS=YOUR_KEY`
 
 If any problem, please shoot me an email
 
